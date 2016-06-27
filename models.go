@@ -1,11 +1,21 @@
 package main
 
 import (
+	"bufio"
 	"log"
 	"os"
-	"bufio"
 	"strings"
 )
+
+type Envs struct {
+	GoVersion string
+	GOOS      string
+	GOARCH    string
+	NumCPU    int
+	GOPATH    string
+	GOROOT    string
+	Compiler  string
+}
 
 type Client struct {
 	CommonName     string `json:"Common Name"`
@@ -16,8 +26,8 @@ type Client struct {
 }
 
 type ClientList struct {
-	Clients []Client        `json:"Clients"`
-	Status  string		`json:"Status"`
+	Clients []Client `json:"Clients"`
+	Status  string   `json:"Status"`
 }
 
 func parseStatusFile() ClientList {
@@ -66,7 +76,7 @@ func parseStatusFile() ClientList {
 			log.Fatal("Parse Failed. Expected 5 Fields in CLIENT LIST")
 		}
 
-		client := Client{CommonName:row[0], RealAddress:row[1], ConnectedSince:row[4]}
+		client := Client{CommonName: row[0], RealAddress: row[1], ConnectedSince: row[4]}
 
 		clients = append(clients, client)
 	}
