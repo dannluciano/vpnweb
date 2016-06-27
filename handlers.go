@@ -3,11 +3,12 @@ package main
 import (
 	"html/template"
 	"net/http"
-	"runtime"
 	"os"
+	"runtime"
 )
 
-var templates = template.Must(template.ParseFiles("status.html", "env.html"))
+var templates = template.Must(template.ParseFiles(
+	"templates/status.html", "templates/env.html"))
 
 func StatusHandler(w http.ResponseWriter, r *http.Request) {
 	Logger(w, r)
