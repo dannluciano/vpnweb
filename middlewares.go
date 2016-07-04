@@ -11,7 +11,7 @@ func Logger(w http.ResponseWriter, r *http.Request) {
 
 func BasicAuth(w http.ResponseWriter, r *http.Request, lambda func()) {
 	if r.Header.Get("Authorization") == "" {
-		w.Header().Set("WWW-Authenticate", `Basic realm="mydomain"`)
+		w.Header().Set("WWW-Authenticate", `Basic realm="vpnweb"`)
 	} else {
 		u, p, ok := r.BasicAuth()
 		if ok && username == u && password == p {

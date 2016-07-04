@@ -8,6 +8,7 @@ import (
 )
 
 type Envs struct {
+	Env	  string
 	GoVersion string
 	GOOS      string
 	GOARCH    string

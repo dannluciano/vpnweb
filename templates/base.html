@@ -1,0 +1,35 @@
+{{define "base"}}
+<!doctype html>
+<html>
+<head>
+    <title>VPN Status</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="/static/pure-min.css">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div>
+    <div class="menu pure-g">
+        <nav class="pure-u pure-menu pure-menu-horizontal">
+            <a href="/reload/" class="pure-menu-heading pure-menu-link">VPNWeb</a>
+            <ul class="pure-menu-list">
+                <li class="pure-menu-item">
+                    <a class="pure-menu-link" href="/status/">Status</a>
+                </li>
+                <li class="pure-menu-item">
+                    <a class="pure-menu-link" href="/configs/">Configs</a>
+                </li>
+                <li class="pure-menu-item">
+                    <a class="pure-menu-link" href="/env/">Env</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <main>
+        {{template "content" .}}
+    </main>
+</div>
+</body>
+</html>
+{{end}}
